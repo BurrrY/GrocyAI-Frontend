@@ -4,6 +4,8 @@ let audioChunks = [];
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const status = document.getElementById("status");
+const API_URL = window.ENV.API_URL;
+
 
 startBtn.onclick = async () => {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -21,7 +23,7 @@ startBtn.onclick = async () => {
 
     status.textContent = "⏳ Sende Audio ans Backend...";
 
-    const res = await fetch("http://localhost:5000/upload-audio", {
+    const res = await fetch(API_URL+"/upload-audio", {
       method: "POST",
       body: formData
     });
@@ -29,7 +31,7 @@ startBtn.onclick = async () => {
     const { reply } = await res.json();
     status.textContent = "💬 GPT-Antwort: " + reply;
 
-    const ttsRes = await fetch("http://localhost:5000/tts", {
+    const ttsRes = await fetch(API_URL+"/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: reply })

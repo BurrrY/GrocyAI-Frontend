@@ -1,6 +1,7 @@
 const chatBox = document.getElementById("chat");
 const input = document.getElementById("userInput");
 const sendBtn = document.getElementById("send");
+const API_URL = window.ENV.API_URL;
 
 sendBtn.onclick = async () => {
   const text = input.value.trim();
@@ -9,7 +10,7 @@ sendBtn.onclick = async () => {
   addMessage("🧑", text);
   input.value = "";
 
-  const res = await fetch("http://localhost:5000/chat", {
+  const res = await fetch(API_URL+"/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text, session: "default" })
