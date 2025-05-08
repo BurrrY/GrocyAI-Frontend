@@ -1,7 +1,6 @@
 const chatBox = document.getElementById("chat");
 const input = document.getElementById("userInput");
 const sendBtn = document.getElementById("send");
-const API_URL = window.ENV.API_URL;
 
 sendBtn.onclick = async () => {
   const text = input.value.trim();

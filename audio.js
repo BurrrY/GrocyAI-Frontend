@@ -4,7 +4,6 @@ let audioChunks = [];
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const status = document.getElementById("status");
-const API_URL = window.ENV.API_URL;
 
 
 startBtn.onclick = async () => {
