@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Sprachassistent</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    button { margin-right: 1rem; padding: 0.5rem 1rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>🎤 Sprachassistent</h1>
+  <button id="start">Aufnahme starten</button>
+  <button id="stop" disabled>Stopp</button>
+  <p id="status">Bereit.</p>
+
+<textarea id="userInput" rows="2" cols="50" placeholder="Nachricht..."></textarea>
+<button id="send">Senden</button>
+
+<div id="chat" style="max-height: 400px; overflow-y: auto; margin-top: 1rem;"></div>
+
+
+  <script src="audio.js"></script>
+<script src="chat.js"></script>
+
+</body>
+</html>
